@@ -23,7 +23,7 @@ export const useContactsContext = () => {
 
 export const ContactsProvider = ({ children }) => {
     const [contacts, setContacts] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
     const fetchContacts = useCallback(async () => {
