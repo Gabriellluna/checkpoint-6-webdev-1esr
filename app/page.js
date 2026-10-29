@@ -10,8 +10,8 @@ import { useEffect } from "react";
 
 export default function HomePage() {
   const { contacts, loading, error } = useContactsContext();
-  const { query, setQuery, filteredContacts } = useFilter(contacts);
-  const stats = useStatistics(filteredContacts);
+  const { query, setQuery, filteredItems } = useFilter(contacts);
+  const stats = useStatistics(filteredItems);
 
   useEffect(() => {
     console.log("Aqui vem o que de contacts? ", contacts)
@@ -25,7 +25,7 @@ export default function HomePage() {
       <h1>Contatos</h1>
       <FilterInput value={query} onChange={setQuery} />
       <Statistics total={stats.total} filtered={stats.filtered} />
-      <ContactList contacts={filteredContacts} />
+      <ContactList contacts={filteredItems} />
     </main>
   );
 }
