@@ -6,11 +6,16 @@ import { useStatistics } from "../hooks/useStatistics";
 import FilterInput from "./components/FilterInput";
 import Statistics from "./components/Statistics";
 import ContactList from "./components/ContactList";
+import { useEffect } from "react";
 
 export default function HomePage() {
   const { contacts, loading, error } = useContactsContext();
   const { query, setQuery, filteredContacts } = useFilter(contacts);
   const stats = useStatistics(filteredContacts);
+
+  useEffect(() => {
+    console.log("Aqui vem o que de contacts? ", contacts)
+  })
 
   if (loading) return <p>Carregando contatos...</p>;
   if (error) return <p style={{ color: "crimson" }}>{error}</p>;
